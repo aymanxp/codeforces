@@ -1,15 +1,3 @@
-}
-if (nbrs.size() >= kConunter) {
-  cout << nbrs.size();
-} else {
-  cout << kConunter;
-}
-cout << "\n";
-}
+#include <iostream>
 
-int main() {
-  int t;
-  cin >> t;
-  while (t--)
-    solve();
-}
+int main() {}
