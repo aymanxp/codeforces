@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <sys/types.h>
 #include <vector>
 using namespace std;
 
@@ -41,16 +40,25 @@ vector<int> prefixSum(string s, int n) {
   return sums;
 }
 
+void solve() {
+  int n;
+  cin >> n;
+  string s;
+  cin >> s;
+  vector<int> prefSums = prefixSum(s, n);
+  vector<int> suffSums = suffixSum(s, n);
+  int m = prefSums[0] + suffSums[1];
+  for (int i = 1; i < n - 1; ++i) {
+    if (m < prefSums[i] + suffSums[i + 1]) {
+      m = prefSums[i] + suffSums[i + 1];
+    }
+  }
+  cout << m << "\n";
+}
+
 int main() {
-  string s = "abcdc";
-  vector<int> outp = prefixSum(s, s.size());
-  for (auto num : outp) {
-    cout << num << " ";
-  }
-  cout << "\n";
-  vector<int> pref = suffixSum(s, s.size());
-  for (auto num : pref) {
-    cout << num << " ";
-  }
-  cout << "\n";
+  int t;
+  cin >> t;
+  while (t--)
+    solve();
 }
